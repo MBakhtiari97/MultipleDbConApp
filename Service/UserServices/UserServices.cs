@@ -4,6 +4,6 @@ public interface IUserServices
 {
 }
 
-internal class UserServices : IUserServices
+public class UserServices : IUserServices
 {
 }

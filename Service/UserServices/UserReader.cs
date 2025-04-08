@@ -4,6 +4,6 @@ public interface IUserReader
 {
 }
 
-internal class UserReader : IUserReader
+public class UserReader : IUserReader
 {
 }

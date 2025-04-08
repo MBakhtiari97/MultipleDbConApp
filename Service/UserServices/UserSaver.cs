@@ -4,6 +4,6 @@ public interface IUserSaver
 {
 }
 
-internal class UserSaver : IUserSaver
+public class UserSaver : IUserSaver
 {
 }
