@@ -2,11 +2,11 @@
 
 namespace Core;
 
-class User
+public class AppUser
 {
     [Key]
     [Required]
-    public int UserId { get; set; }
+    public int AppUserId { get; set; }
     [Required]
     [StringLength(250, ErrorMessage = "{0} is too long")]
     public string Username { get; set; } = string.Empty;

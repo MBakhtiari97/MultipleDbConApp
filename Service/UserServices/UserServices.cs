@@ -1,9 +1,9 @@
 ﻿namespace Service.UserServices;
 
-interface IUserServices
+public interface IUserServices
 {
 }
 
-class UserServices : IUserServices
+internal class UserServices : IUserServices
 {
 }

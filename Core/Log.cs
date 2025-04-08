@@ -2,7 +2,7 @@
 
 namespace Core;
 
-class Log
+public class Log
 {
     [Key]
     [Required]
@@ -16,11 +16,11 @@ class Log
     [Required]
     public DateTime LogDateTime { get; set; } = DateTime.Now;
     [Required]
-    public int UserId { get; set; }
+    public int AppUserId { get; set; }
 
     #region Navigation Properties
 
-    public User User { get; set; } = null!;
+    public AppUser AppUser { get; set; } = null!;
 
     #endregion
 }

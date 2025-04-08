@@ -1,9 +1,9 @@
 ﻿namespace Service.UserServices;
 
-interface IUserReader
+public interface IUserReader
 {
 }
 
-class UserReader : IUserReader
+internal class UserReader : IUserReader
 {
 }

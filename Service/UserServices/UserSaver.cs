@@ -1,9 +1,9 @@
 ﻿namespace Service.UserServices;
 
-interface IUserSaver
+public interface IUserSaver
 {
 }
 
-class UserSaver : IUserSaver
+internal class UserSaver : IUserSaver
 {
 }
