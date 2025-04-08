@@ -1,4 +1,3 @@
-using Core;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers;
@@ -17,6 +16,13 @@ public class UserController : ControllerBase
     [HttpGet(Name = "GetWeatherForecast")]
     public IActionResult GetUser()
     {
-        return new AppUser();
+        try
+        {
+            return Ok();
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
     }
 }
