@@ -2,7 +2,7 @@
 
 namespace Core;
 
-public class Log
+public class SystemLog
 {
     [Key]
     [Required]

@@ -21,6 +21,6 @@ public class AppUser
     public DateTime RegisterDate { get; set; } = DateTime.Now;
 
     #region Navigation Properties
-    public ICollection<Log> Logs { get; set; } = null!;
+    public ICollection<SystemLog> SystemLogs { get; set; } = null!;
     #endregion
 }
