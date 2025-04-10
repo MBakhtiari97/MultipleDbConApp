@@ -37,9 +37,8 @@ public class Program
     private static void RegisterServices(WebApplicationBuilder builder)
     {
         builder.Services.AddScoped<IUserServices, UserServices>();
-        builder.Services.AddScoped<IUserReader, UserReader>();
-        builder.Services.AddScoped<IUserSaver, UserSaver>();
     }
+
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
