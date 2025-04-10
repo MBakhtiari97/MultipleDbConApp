@@ -1,4 +1,6 @@
+using Core;
 using Microsoft.AspNetCore.Mvc;
+using Service.UserServices;
 
 namespace Web.Controllers;
 
@@ -7,18 +9,78 @@ namespace Web.Controllers;
 public class UserController : ControllerBase
 {
     private readonly ILogger<UserController> _logger;
+    private readonly IUserServices _userServices;
 
-    public UserController(ILogger<UserController> logger)
+    public UserController(ILogger<UserController> logger, IUserServices userServices)
     {
+        _userServices = userServices;
         _logger = logger;
     }
 
-    [HttpGet(Name = "GetWeatherForecast")]
-    public IActionResult GetUser()
+    [HttpGet]
+    [Route("[action]")]
+    public async Task<IActionResult> GetUser(int userId)
     {
         try
         {
-            return Ok();
+            var result = await _userServices.GetUserAsync(userId);
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+    }
+    [HttpGet]
+    [Route("[action]")]
+    public async Task<IActionResult> GetUsers()
+    {
+        try
+        {
+            var result = await _userServices.GetAllUsersAsync();
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+    }
+    [HttpPost]
+    [Route("[action]")]
+    public async Task<IActionResult> SaveUser(AppUser user)
+    {
+        try
+        {
+            var result = await _userServices.SaveUserAsync(user);
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+    }
+    [HttpPut]
+    [Route("[action]")]
+    public async Task<IActionResult> UpdateUser(int userId, AppUser user)
+    {
+        try
+        {
+            var result = await _userServices.UpdateUserAsync(userId, user);
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+    }
+    [HttpDelete]
+    [Route("[action]")]
+    public async Task<IActionResult> DeleteUser(int userId)
+    {
+        try
+        {
+            var result = await _userServices.DeleteUserAsync(userId);
+            return Ok(result);
         }
         catch (Exception ex)
         {
