@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Core;
 
@@ -19,8 +20,11 @@ public class AppUser
     public string Password { get; set; } = string.Empty;
     [Required]
     public DateTime RegisterDate { get; set; } = DateTime.Now;
+    [Required]
+    public bool Deleted { get; set; } = false;
 
     #region Navigation Properties
-    public ICollection<SystemLog> SystemLogs { get; set; } = null!;
+    [JsonIgnore]
+    public ICollection<SystemLog>? SystemLogs { get; set; }
     #endregion
 }
